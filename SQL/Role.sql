@@ -1,0 +1,25 @@
+﻿CREATE ROLE Staff
+--Gán các quyền trên table cho role Staff
+GRANT SELECT, REFERENCES ON SAN_PHAM TO Staff
+GRANT SELECT, REFERENCES ON	HOA_DON TO Staff
+GRANT SELECT, REFERENCES ON CHI_TIET_HOA_DON TO Staff
+GRANT SELECT, REFERENCES ON CHI_TIET_LO_HANG TO Staff
+GRANT SELECT, REFERENCES ON LO_HANG TO Staff
+GRANT SELECT, REFERENCES ON NHA_CUNG_CAP TO Staff
+
+-- Gán quyền thực thi trên các procedure, function cho role Staff
+GRANT EXECUTE TO Staff
+GRANT SELECT TO Staff  
+
+
+DENY EXECUTE ON sp_ThemNhanVien TO Staff;
+DENY EXECUTE ON sp_CapNhatNhanVien TO Staff;
+DENY EXECUTE ON sp_XoaNhanVien TO Staff;
+DENY SELECT ON fn_TimNVTheoMa TO Staff;
+DENY SELECT ON fn_TimNVTheoTen TO Staff;
+DENY SELECT ON v_NhanVien TO Staff;
+DENY EXECUTE ON sp_ThemTaiKhoan TO Staff;
+DENY EXECUTE ON sp_CapNhatTK TO Staff;
+DENY SELECT ON v_TaiKhoan TO Staff;
+DENY SELECT ON fn_TimTKTheoMaTK TO Staff;
+DENY SELECT ON fn_TimTKTheoTen TO Staff;
